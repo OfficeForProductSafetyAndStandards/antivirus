@@ -1,17 +1,11 @@
 # Antivirus server
 
-This folder contains the code for an antivirus API.
+This project contains the code for an antivirus API. Antivirus is used for [Cosmetics](https://github.com/UKGovernmentBEIS/beis-opss) and [PSD](https://github.com/UKGovernmentBEIS/beis-opss-psd) projects.
 
 
-## Overview
+## Tech Overview
 
 The site is written in [Ruby](https://www.ruby-lang.org/en/) using [Sinatra](http://sinatrarb.com/) and uses the [clamav](https://www.clamav.net/) to scan the files.
-
-
-## Getting Setup
-
-The antivirus server should be running if you've followed the steps in [the root README](../README.md#getting-setup).
-
 
 ## Deployment
 
