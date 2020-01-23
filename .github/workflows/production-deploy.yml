@@ -38,7 +38,7 @@ jobs:
         cf7 target -o 'beis-opss' -s $SPACE
         ./deploy.sh
         cf7 logout
-    - name: Deploy to staging
+    - name: Deploy to production
       env:
         SPACE: prod
         CF_USERNAME: ${{ secrets.PaaSUsernameProduction }}
