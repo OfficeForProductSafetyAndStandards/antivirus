@@ -30,8 +30,8 @@ jobs:
     - name: Deploy to staging
       env:
         SPACE: staging
-        CF_USERNAME: ${{ secrets.PaaSUsernameInt }}
-        CF_PASSWORD: ${{ secrets.PaaSPasswordInt }}
+        CF_USERNAME: ${{ secrets.PaaSUsernameStaging }}
+        CF_PASSWORD: ${{ secrets.PaaSPasswordStaging }}
       run: |
         cf7 api api.london.cloud.service.gov.uk
         cf7 auth
@@ -41,8 +41,8 @@ jobs:
     - name: Deploy to staging
       env:
         SPACE: prod
-        CF_USERNAME: ${{ secrets.PaaSUsernameInt }}
-        CF_PASSWORD: ${{ secrets.PaaSPasswordInt }}
+        CF_USERNAME: ${{ secrets.PaaSUsernameProduction }}
+        CF_PASSWORD: ${{ secrets.PaaSPasswordProduction }}
       run: |
         cf7 api api.london.cloud.service.gov.uk
         cf7 auth
