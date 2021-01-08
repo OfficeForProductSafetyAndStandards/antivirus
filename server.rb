@@ -43,8 +43,6 @@ post '/safe' do
 end
 
 get '/health' do
-  protect!(ENV['HEALTH_USERNAME'], ENV['HEALTH_PASSWORD'])
-
   content_type :json
 
   status Clamby.safe?('./server.rb') ? 200 : 500
