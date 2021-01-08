@@ -27,11 +27,6 @@ This will configure sinatra to run in production mode.
     cf set-env antivirus ANTIVIRUS_USERNAME XXX
     cf set-env antivirus ANTIVIRUS_PASSWORD XXX
 
-This will set HTTP basic auth for the API.
-
-    cf set-env antivirus HEALTH_USERNAME XXX
-    cf set-env antivirus HEALTH_PASSWORD XXX
-
 This will set the Sentry configuration
 
     cf set-env antivirus SENTRY_DSN XXX
