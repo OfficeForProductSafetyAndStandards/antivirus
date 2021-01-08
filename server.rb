@@ -45,5 +45,13 @@ end
 get '/health' do
   content_type :json
 
-  status Clamby.safe?('./server.rb') ? 200 : 500
+  begin
+    status Clamby.safe?('./server.rb') ? 200 : 500
+
+  # The ClamAV process takes a bit longer to start than the Sinatra process.
+  # We can safely prevent Sentry capturing these exceptions but allow the
+  # CloudFoundry health check to see the app is not healthy
+  rescue Clamby::ClamscanClientError
+    status 500
+  end
 end
