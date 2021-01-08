@@ -15,13 +15,14 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   clamby (= 1.6.2)
   sinatra (= 2.0.5)
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.7.2p137
 
 BUNDLED WITH
-   1.17.3
+   2.2.1

@@ -1,6 +1,6 @@
-FROM ruby:2.5.5
+FROM ruby:2.7.2
 
-RUN apt-get update && apt-get install -y \ 
+RUN apt-get update && apt-get install -y \
   clamav-daemon && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
