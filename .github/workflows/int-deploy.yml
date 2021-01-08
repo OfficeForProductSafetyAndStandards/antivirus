@@ -28,6 +28,7 @@ jobs:
         SPACE: int
         CF_USERNAME: ${{ secrets.PaaSUsernameInt }}
         CF_PASSWORD: ${{ secrets.PaaSPasswordInt }}
+        MANIFEST: manifest.review.yml
       run: |
         export PR_NUMBER=`echo $GITHUB_REF | grep -o '[0-9_]\+'`
         export BUILD_ID=$PR_NUMBER

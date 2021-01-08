@@ -31,6 +31,7 @@ jobs:
         SPACE: staging
         CF_USERNAME: ${{ secrets.PaaSUsernameStaging }}
         CF_PASSWORD: ${{ secrets.PaaSPasswordStaging }}
+        MANIFEST: manifest.yml
       run: |
         cf api api.london.cloud.service.gov.uk
         cf auth
@@ -42,6 +43,7 @@ jobs:
         SPACE: prod
         CF_USERNAME: ${{ secrets.PaaSUsernameProduction }}
         CF_PASSWORD: ${{ secrets.PaaSPasswordProduction }}
+        MANIFEST: manifest.yml
       run: |
         cf api api.london.cloud.service.gov.uk
         cf auth
