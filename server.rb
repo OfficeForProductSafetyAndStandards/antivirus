@@ -10,6 +10,8 @@ Clamby.configure(
   error_file_virus: false
 )
 
+Sentry.init { |config| config.dsn = ENV['SENTRY_DSN'] }
+
 use Sentry::Rack::CaptureExceptions
 
 set :bind, '0.0.0.0'
