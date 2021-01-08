@@ -1,5 +1,6 @@
 require 'clamby'
 require 'sinatra'
+require 'sentry-ruby'
 
 Clamby.configure(
   daemonize: true,
@@ -8,6 +9,8 @@ Clamby.configure(
   error_file_missing: true,
   error_file_virus: false
 )
+
+use Sentry::Rack::CaptureExceptions
 
 set :bind, '0.0.0.0'
 

@@ -32,6 +32,11 @@ This will set HTTP basic auth for the API.
     cf set-env antivirus HEALTH_USERNAME XXX
     cf set-env antivirus HEALTH_PASSWORD XXX
 
+This will set the Sentry configuration
+
+    cf set-env antivirus SENTRY_DSN XXX
+    cf set-env antivirus SENTRY_CURRENT_ENV <<SPACE>>
+
 This will set HTTP basic auth for the health check.
 
 Finally, create the following credentials for other applications to consume:
