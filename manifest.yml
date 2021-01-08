@@ -1,10 +1,10 @@
 ---
 applications:
 - name: antivirus
-  memory: 2G
+  memory: 4G
   routes:
     - route: ((hostname))
-  instances: 1
+  instances: 4
   stack: cflinuxfs3
   disk_quota: 2G
   services:
