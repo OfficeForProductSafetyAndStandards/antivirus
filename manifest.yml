@@ -13,4 +13,3 @@ applications:
   health-check-http-endpoint: /health
   health-check-invocation-timeout: 30
   timeout: 180
-
