@@ -1,5 +1,7 @@
 FROM ruby:2.7.4
 
+RUN gem install bundler:2.2.22
+
 RUN apt-get update && apt-get install -y \
   clamav-daemon && \
   apt-get clean && \
