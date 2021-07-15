@@ -11,3 +11,5 @@ applications:
     - opss-log-drain
   health-check-type: http
   health-check-http-endpoint: /health
+  health-check-invocation-timeout: 30
+  timeout: 180

@@ -1,15 +1,11 @@
-FROM ruby:2.7.2
+FROM ruby:2.7.4
+
+RUN gem install bundler:2.2.22
 
 RUN apt-get update && apt-get install -y \
   clamav-daemon && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
-
-# initial update of av databases
-RUN wget -O /var/lib/clamav/main.cvd http://database.clamav.net/main.cvd && \
-    wget -O /var/lib/clamav/daily.cvd http://database.clamav.net/daily.cvd && \
-    wget -O /var/lib/clamav/bytecode.cvd http://database.clamav.net/bytecode.cvd && \
-    chown clamav:clamav /var/lib/clamav/*.cvd
 
 # permission juggling
 RUN mkdir /var/run/clamav && \
