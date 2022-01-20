@@ -1,6 +1,6 @@
-FROM ruby:2.7.4
+FROM ruby:3.0.3
 
-RUN gem install bundler:2.2.22
+RUN gem install bundler:2.3.4
 
 RUN apt-get update && apt-get install -y \
   clamav-daemon && \
