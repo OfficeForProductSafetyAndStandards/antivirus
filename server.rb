@@ -1,6 +1,7 @@
 require 'clamby'
 require 'sinatra'
 require 'sentry-ruby'
+require 'shellwords'
 
 Clamby.configure(
   daemonize: true,
