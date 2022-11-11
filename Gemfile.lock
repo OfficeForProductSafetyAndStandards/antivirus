@@ -23,10 +23,13 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     multipart-post (2.1.1)
-    mustermann (1.1.1)
+    mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    rack (2.2.3)
-    rack-protection (2.1.0)
+    nio4r (2.5.8)
+    puma (6.0.0)
+      nio4r (~> 2.0)
+    rack (2.2.4)
+    rack-protection (3.0.3)
       rack
     ruby2_keywords (0.0.5)
     sentry-ruby (4.8.0)
@@ -36,12 +39,12 @@ GEM
     sentry-ruby-core (4.8.0)
       concurrent-ruby
       faraday
-    sinatra (2.1.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.1.0)
+    sinatra (3.0.3)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.3)
       tilt (~> 2.0)
-    tilt (2.0.10)
+    tilt (2.0.11)
 
 PLATFORMS
   ruby
@@ -49,8 +52,9 @@ PLATFORMS
 
 DEPENDENCIES
   clamby (= 1.6.8)
+  puma
   sentry-ruby
-  sinatra (= 2.1.0)
+  sinatra (= 3.0.3)
 
 RUBY VERSION
    ruby 3.0.3p157
