@@ -8,3 +8,5 @@ gem 'clamby', '1.6.8'
 gem 'puma'
 gem 'sentry-ruby'
 gem 'sinatra', '4.1.0'
+
+gem "rackup", "~> 2.2"
