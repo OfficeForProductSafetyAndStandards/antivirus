@@ -1,5 +1,4 @@
 name: Review app
-
 on: [pull_request]
 
 permissions:
@@ -10,34 +9,33 @@ jobs:
   reviewapp:
     name: Deploy
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Install cf client
-      env:
-        CF_CLI_VERSION: v7
-      run: |
-        mkdir -p $GITHUB_WORKSPACE/bin
-        curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C $GITHUB_WORKSPACE/bin
-        echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
-    - name: Build Docker Image
-      run: |
-        export PR_NUMBER=`echo $GITHUB_REF | grep -o '[0-9_]\+'`
-        export BUILD_ID=$PR_NUMBER
-        docker login -u=${{ secrets.DockerHubUsername }} -p=${{ secrets.DockerHubPassword }}
-        docker build -t beisopss/antivirus:$BUILD_ID .
-        docker push beisopss/antivirus:$BUILD_ID
-    - name: Deploy
-      env:
-        SPACE: int
-        CF_USERNAME: ${{ secrets.PaaSUsernameInt }}
-        CF_PASSWORD: ${{ secrets.PaaSPasswordInt }}
-        MANIFEST: manifest.review.yml
-      run: |
-        export PR_NUMBER=`echo $GITHUB_REF | grep -o '[0-9_]\+'`
-        export BUILD_ID=$PR_NUMBER
-        cf api api.london.cloud.service.gov.uk
-        cf auth
-        cf target -o 'beis-opss' -s $SPACE
-        ./deploy.sh
-        cf logout
+      - uses: actions/checkout@v1
+      - name: Install cf client
+        env:
+          CF_CLI_VERSION: v7
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/bin
+          curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C $GITHUB_WORKSPACE/bin
+          echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
+      - name: Build Docker Image
+        run: |
+          export PR_NUMBER=`echo $GITHUB_REF | grep -o '[0-9_]\+'`
+          export BUILD_ID=$PR_NUMBER
+          echo "${{ secrets.DockerHubPassword }}" | docker login -u ${{ secrets.DockerHubUsername }} --password-stdin
+          docker build -t beisopss/antivirus:$BUILD_ID .
+          docker push beisopss/antivirus:$BUILD_ID
+      - name: Deploy
+        env:
+          SPACE: int
+          CF_USERNAME: ${{ secrets.PaaSUsernameInt }}
+          CF_PASSWORD: ${{ secrets.PaaSPasswordInt }}
+          MANIFEST: manifest.review.yml
+        run: |
+          export PR_NUMBER=`echo $GITHUB_REF | grep -o '[0-9_]\+'`
+          export BUILD_ID=$PR_NUMBER
+          cf api api.london.cloud.service.gov.uk
+          cf auth
+          cf target -o 'beis-opss' -s $SPACE
+          ./deploy.sh
+          cf logout
