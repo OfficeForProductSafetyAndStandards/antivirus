@@ -1,8 +1,10 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby File.read(".ruby-version").strip
+source 'https://rubygems.org'
 
-gem "clamby", "1.6.8"
-gem "sinatra", "2.1.0"
-gem "sentry-ruby"
-gem "puma"
+ruby File.read('.ruby-version').strip
+
+gem 'clamby', '1.6.8'
+gem 'puma'
+gem 'sentry-ruby'
+gem 'sinatra', '2.1.0'

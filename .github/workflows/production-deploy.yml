@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  deployments: write
+
 jobs:
   reviewapp:
     name: Deploy
