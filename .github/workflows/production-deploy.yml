@@ -1,4 +1,4 @@
-name: Deploy to staging, pre-prod and production
+name: Deploy to staging and production
 
 on:
   push:
@@ -35,18 +35,6 @@ jobs:
         SPACE: staging
         CF_USERNAME: ${{ secrets.PaaSUsernameStaging }}
         CF_PASSWORD: ${{ secrets.PaaSPasswordStaging }}
-        MANIFEST: manifest.yml
-      run: |
-        cf api api.london.cloud.service.gov.uk
-        cf auth
-        cf target -o 'beis-opss' -s $SPACE
-        ./deploy.sh
-        cf logout
-    - name: Deploy to pre-prod
-      env:
-        SPACE: pre-prod
-        CF_USERNAME: ${{ secrets.PaaSUsernameProduction }}
-        CF_PASSWORD: ${{ secrets.PaaSPasswordProduction }}
         MANIFEST: manifest.yml
       run: |
         cf api api.london.cloud.service.gov.uk
